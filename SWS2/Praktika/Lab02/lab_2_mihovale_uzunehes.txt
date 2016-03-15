@@ -1,0 +1,55 @@
+2) Login request
+
+	POST https://www.hacking-lab.com/user/login/index.html HTTP/1.1
+	User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:44.0) Gecko/20100101 Firefox/44.0
+	Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+	Accept-Language: en-US,en;q=0.5
+	Accept-Encoding: br
+	Referer: https://www.hacking-lab.com/index.html
+	Cookie: HLSSL=BD7YCqdWq5+iu03Zn38B9aPy/TApn5yv; JSESSIONID=BD5ADD72610AA5010F99B87B48A027F3
+	Connection: keep-alive
+	Content-Type: application/x-www-form-urlencoded
+	Content-Length: 201
+	Host: www.hacking-lab.com
+
+	return=&eventid=&uk=&userEmail=mihov.alex%40gmail.com&userPassword=***************&login=Login&logi=
+
+3) successfull login response, redirect to "https://www.hacking-lab.com/events/"
+
+	HTTP/1.1 302 Found
+	Date: Thu, 10 Mar 2016 19:32:14 GMT
+	Server: Secure Web Server
+	Location: https://www.hacking-lab.com/events/
+	Content-Type: text/html;charset=UTF-8
+	Content-Length: 0
+	Folklore: SSLZeltli
+	Strict-Transport-Security: max-age=15552000
+	X-XSS-Protection: 1; mode=block
+	X-Frame-Options: SAMEORIGIN
+	Access-Control-Allow-Origin: http://hackvent.hacking-lab.com
+	Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+	Access-Control-Allow-Credentials: true
+	Set-Cookie: HLSSL=XkPB8TFzPpAKQdkOtai+mhx4h3Q024Kx; path=/; secure; HttpOnly
+	Keep-Alive: timeout=15, max=100
+	Connection: Keep-Alive
+
+4) unsuccessful login, redirect to "https://www.hacking-lab.com/user/login/index.html"
+
+
+	HTTP/1.1 200 OK
+	Date: Thu, 10 Mar 2016 19:38:06 GMT
+	Server: Secure Web Server
+	Last-Modified: Thu, 10 Mar 2016 19:38:06 GMT
+	Content-Type: text/html;charset=UTF-8
+	Content-Length: 23144
+	Vary: Accept-Encoding
+	Folklore: SSLZeltli
+	Strict-Transport-Security: max-age=15552000
+	X-XSS-Protection: 1; mode=block
+	X-Frame-Options: SAMEORIGIN
+	Access-Control-Allow-Origin: http://hackvent.hacking-lab.com
+	Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+	Access-Control-Allow-Credentials: true
+	Keep-Alive: timeout=15, max=100
+	Connection: Keep-Alive
+

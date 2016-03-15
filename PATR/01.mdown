@@ -1,0 +1,64 @@
+#Patentrecht
+
+##Vorlesung 1
+
+####Andere Immaterialgüterrechte:
+* Urheberrecht
+* Markensrecht
+* Designrecht
+* Topographierecht
+
+####Marke eintragen####
+
+* relativ einfach
+* kann man selber anmelden
+* nicht so teuer
+
+####Ein Patent eintragen
+* teuer
+* schwierig
+* sehr aufwändig
+* meistens zu teuer for normale Menschen
+
+####7 Todsünden eines Enrfinders
+
+1. Die Lösung ist komplexer als das Problem.
+2. Die Erfindung wird nicht bis zur Oatentanmeldung geheim gehalten
+3. Die Erfindung ist nicht neu
+4. Der Erfinder hat das Problem nicht genau unterscuht
+5. Keiner will sie haben
+6. Die Erfindung geheim zu halten ist sicherer als die Patentanmeldung
+7. Der Erfinder hat eine unrealsitsche Vorstellung vom Wert seines Werks
+
+
+####Vorgehen Abklärung
+* Vorabklärung ob bereits ein ähnliches Schutzrecht eingetragen wurde
+* ist die Website nch frei
+* Geheimhaltung bis uzr Anbeldung
+* Spezialist kontaktieren
+* Sorgfältige Kosten-Nutzen-Analyse
+
+####Öffentliches und privates Recht in IP-Recht
+* öffentliches und Privates Recht kommen beide vor
+* Wann handelt es sich um öffentliches Recht?
+	* Registerverfahren für Patente
+* Wann handelt es sich um privates Recht?
+	* Schadensersatzforderungen
+	* Lizenzrecht
+
+####Wesentliche Gesetze
+* Patentgesetz
+* Designgesetz
+* Markenschutzgesetz
+* Urheberrechtgesetz
+* Topographiegesetz
+* Gesetz gegen unlauteren Wettbewerb
+* Kartellgesetz
+* Obligationenrecht
+
+####Wie löse ich eine Juristische Frage:
+1. Wer will was von wem, woraus?
+2. Relevante Gesetze
+3. Subsumieren: Ist der gewöhlte Artikel anwendbar
+4. Ergebnis
+

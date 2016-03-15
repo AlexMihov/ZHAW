@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Lektion 2</title>
+
+</head>
+<body>
+<h1>Lektion 2</h1>
+
+<h4>Was ist ein DWH? Kann man das einfach so kaufen?</h4>
+
+<p>Es ist eine Sammlung von verschiedenen Softwarepaketen, welche es uns ermöglichen die benötigten  Daten analysieren und evaluieren können.</p>
+
+<h2>Usecase: Marketing Analyse</h2>
+
+<p>Ausgangslage: Eine Firma möchte ein Product lancieren; Welche potenziellen Kunden würden das Produkt kaufen? Lohnt sich das ganze?</p>
+
+<p>Ansatz:</p>
+
+<ul>
+<li>Erstellen eines Marketing Data Marts mit Informationen über
+
+<ul>
+<li>Produkte</li>
+<li>Kunden</li>
+<li>Transaktionen</li>
+</ul>
+</li>
+<li>Das neue Produkt wird mit ähnlichen Produkten verglichen</li>
+<li>Kunden, die ähnliche Produkte gekauft haben, werden analysiert</li>
+</ul>
+
+
+<p>Das heisst aus den bestehenden Daten können Schlüsse gezogen werden.</p>
+
+<p>Das Resultat ist eine Tabelle, welche sehr dynamisch ist. Es wird ermöglicht auf die Daten einzugehen, welche einem besonders interessieren.</p>
+
+<hr />
+
+<h2>Sternschema (Kennzahln, Fakten, Dimensionen)</h2>
+
+<p>Vorteile:</p>
+
+<ul>
+<li>Höhere Abragegeschwindigkeit, da weniger und einfachere Joins benötigt werden</li>
+<li>Grund: Denormalisierung der Daten
+
+<ul>
+<li>Nicht in dritter Normalform, Daten werden innerhaln einer oder mehrerer Tabellen dupliziert</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Sternschemata haben 2 Arten von tabellen:</p>
+
+<ul>
+<li>Faktentabelle: Enthäkt Fremdschlüssel auf Dimensionstabellen</li>
+<li>Dimensionstabellen: Gelten als msterdaten und beinhalten Primärschlüssel die mit der Faktentabelle verknüpft werden</li>
+</ul>
+
+
+<p style="text-align:center;"><img src="img/star.png" alt="image" /></p>
+
+<p>In der Mitte sind die Fakten, welche keine Bedeutung haben. Die Dimensionstabellen erklären dann was die Kennzahlen genau bedeuten.</p>
+
+<p>Faktentabellen:
+Beinhalten harte numerische Attribute; bei Verkäufen, was und wieviel. Sie sind also sehr schmal, aber seeeeehr lang.</p>
+
+<h5>Kennzahlen: Spezielle Fakten</h5>
+
+<p>Kennzahlen sind die Grundlage für fachliche Auswertung:</p>
+
+<ul>
+<li>Banken:
+
+<ul>
+<li>Net new Assets</li>
+<li>Assets under managemtn</li>
+</ul>
+</li>
+<li>Telekommunikation
+
+<ul>
+<li>Average Revenue per user</li>
+</ul>
+</li>
+<li>eBusiness
+
+<ul>
+<li>Click trough rate</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Kennzahlen sind <strong>Aggregate</strong> über einen bestimmten Zeitraum, d.h. keine Einzelbetrachtungen.
+Es interessiert uns nicht was Herr Meier gemacht hat, es interessiert uns wieviele Produkte X am Tag Y in der Ortschaft Z abgesetzt wurden.</p>
+
+<h5>Dimensionen</h5>
+
+<p>Sie geben den Kontext zu den Fakten</p>
+
+<ul>
+<li>Ansammlung von Daten, die die Fakten von eoner bestimmtem Sicht aus beschreiben</li>
+<li>Dimensionen beschreiben den <strong>kontextuellen Hintergrund</strong> von Fakten</li>
+<li>Dimensionen dienen der <strong>Klassifizierung</strong> von Fakten</li>
+</ul>
+
+
+<h4>Beispiel:</h4>
+
+<p>Liste aller Verkäufe von iPhones in Zürich</p>
+
+<p style="text-align:center;"><img src="img/iphone_example.png" alt="image" /></p>
+
+<p>SQL:</p>
+
+<pre><code>SELECT sales, profit
+FROM fact AS F, product AS p, region AS r
+WHERE f.prod_id = p.prod_id
+    AND f.res_id = r.region_id
+    AND p.prod_desc = 'iPhone AND r.city = 'Zurich'
+</code></pre>
+
+<p>=> Easy</p>
+
+<p>Liste aller Verkäufe von iPhones pro Kanton?</p>
+
+<p>SQL:</p>
+
+<pre><code>SELECT SUM(sales), SUM(profit), state
+FROM fact AS F, product AS p, region AS r
+WHERE f.prod_id = p.prod_id
+    AND f.res_id = r.region_id
+    AND p.prod_desc = 'iPhone
+    GROUP BY r.state
+</code></pre>
+
+<h5>Eigenschaften des Sternschemas</h5>
+
+<ul>
+<li>Faktendaten werden typischerweise sehr gross
+
+<ul>
+<li>Milliardern von Records</li>
+<li>Partitionierung der Faktentabellen und Auslagerung alter Records</li>
+</ul>
+</li>
+<li>Fakten sollen sich auf fachlichen Prozess veschränken, z.b. Verkauf</li>
+<li>Dimensionstabellen sind typischerweise nicht so riesig, haben aber ggf. viele Attribute</li>
+</ul>
+
+
+<hr />
+
+<h2>Hierarchien</h2>
+
+<p>Hierarchische Beziehung: Produkt -> Subkategorie -> Produktkategorie</p>
+
+<h4>Drilling (mehr Details anzeigen)</h4>
+
+<ul>
+<li>Hierarchie von oben nach unten traversieren</li>
+<li>Alle Produkte -> Kategorie -> Subkategorie -> Produkt</li>
+</ul>
+
+
+<h4>Roll-Up (weniger Details anzeigen)</h4>
+
+<p>Hierarche von unten nach oben traversieren</p>
+
+<p>-><img src="img/drilling_roll_up.png" alt="image" />&lt;-</p>
+
+<p>Drilling in SQL ist das Hinzufügen und Wegnehmen von <code>GROUP BY</code></p>
+
+<h4>Slicing</h4>
+
+<p>Ausschneiden von Scheiben aus einem "Cube"</p>
+
+<hr />
+
+<h2>Zeitdimension</h2>
+
+<p>Fast jedes Sternschema enthält eine Zeitdimension</p>
+
+<p>Der Datentyp DATE stellt zu wenige explizite Merkmale zur Verfügung.</p>
+
+<p><strong>Warum?</strong></p>
+
+<p>Normalerweise kann man das berechnen, aber das Kernziel hier ist dass man denormalisiert und die Abfragen somit beschleunigen kann.</p>
+
+<p><strong>Wie wird sie gebaut?</strong>
+Sie werden durch Skript erstellt. Man braucht keine Informationen von extern. Es ist dann egal, wenn manche Tage nicht mit einem Fakt verbunden sind.</p>
+
+<p>Es werden oft Daten von den letzten 10-20 Jahren gespeichert.</p>
+
+<h5>Beispiel ohne Zeitdimension</h5>
+
+<ul>
+<li>Anzahl der Verkäufe von iPhones im 3. Quartal 2014</li>
+<li>Anzahl der Verkäufe in der ersten 5 Tagen jedes Monats</li>
+</ul>
+
+
+<p style="text-align:center;"><img src="img/iphone_example2.png" alt="image" /></p>
+
+<h5>Beispiel mit Zeitdimension</h5>
+
+<p style="text-align:center;"><img src="img/iphone_example3.png" alt="image" /></p>
+
+<hr />
+
+<h2>Conformed Dimensions</h2>
+
+<p>Wenn mehrere unterschiedliche Fragestellungen sollen ausgewertet werden, evtl. mit verschiedenen Sternschemata</p>
+
+<p>"A conformed dimensions is a dimension that has exactly the same meaning and content when being reffered from different fact tables"</p>
+
+<hr />
+
+<h2>Fazit</h2>
+
+<ul>
+<li>Fakten sind die "WHAT"s: alles was wir messen
+
+<ul>
+<li>in der Regel nummerisch</li>
+<li>Umsatz, Bestellungen, Lagerbestand</li>
+</ul>
+</li>
+<li>Dimensionen sind die "BY"s: danach wird qualifiziert / gruppiert
+
+<ul>
+<li>Zeit, Produkt, Organisation, Geographie, Dienstleistung</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>

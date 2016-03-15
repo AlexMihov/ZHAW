@@ -1,0 +1,101 @@
+#Lektion 1
+
+####Use Cases einer Bank
+* Monatsabrechnung
+* Performance Analyse
+
+####Herausforderungen
+Was sind die Probleme, welche auftreten können?
+
+* Sehr grosse Datenmengen
+* verschiedene Zeitzonen
+* unterschiedliche Berechnungsmethoden
+* Man muss Fehler ausbessern
+
+####Datawarehouse
+* ist aus mehreren Datenbanken gemacht
+* kann auch nicht-normalisierte Datenbanke enthalten damit man bessere Performance hat
+* Aktualität:
+	* normalerweise wird ein Mal täglich ein Snapshot gemacht und wird integriert in die Datenbank
+	* Daten werden aber von verchiedenen Systemen zu verschiedenen Zeiten geliefert
+
+Daraus folgt, dass die Daten nicht sekunden-aktuell sind
+
+####Begriffe
+1. Decision Support System
+	* Helfen Entscheidungsträgern operative und strategische Entscheidungen anhand von Daten treffen kann, ohne unbedingt technisches Wissen zu besitzen
+	* Stellen Daten visuell und verständlich dar
+
+1. Data Warehouse
+	* subject-oriented:
+		* getrennt nach Fachgebieten
+		* Daten werden nicht einfach gespeichert, sonder nach Subjekten / Transaktionen
+		* Man will gute Trennung
+	* integrated:
+		* integriert in einem einheitlichen Modell
+		* nicht einfach: viele Datenbanken sollen in einem einzigen Modell zusammengefügt
+	* time-variant:
+		* nichts wird gelöscht
+		* Daten mit unterschiedlichen Zeitpunkten werden parallel geführt
+		* sinvoll für Trends, Recovery, Nachvollziehen von Ereignissen
+	* nonvolotile:
+		* dauerhaft gespeichert und wird nicht mehr verarbeitet
+1. Business Intelligence
+	* Verfahren und Prozesse zur systematischen Analyse von Daten in elektronischer Form.
+	* Ziel ist es Gewinnung von Erkenntnissen, mithilfe der Daten helfen.
+
+1. Expert System
+
+* Computerprogramm, dass Menschen bei der Lösung von komplexeren Problemen wie ein Experte unterstützen kann, indem es Handlungsempfehlungen aus einer Wissensbasis ableitet
+	* medizinische Diagnosen
+
+####Beispiel
+Verschiedene Branchen führen ihre Daten unterschiedlich
+
+* Documents
+* Excel
+* Datenbank
+
+
+Welche Fehler können auftreten:
+
+* Datenformate können anders sein
+* Einheiten können sich unterscheiden (inch vs cm, $ vs CHF)
+* Daten können teilweise lückenhaft sein
+
+
+Staging Layer:
+
+Daten werden in Datenbanken aus verschiedenen Trägern eingelesen
+
+Integrationlayer:
+
+Die Daten müssen vereinheitlicht werden zwischen den Verschiedenen Datenbanken / -trägern
+Dies ist die grösste Herausforderung. Muster müssen erkannt werden und möglichst generisch sein, damit so weniger Fehler wie möglich passieren.
+
+Mittels Machine Learning können teilweise Fehler erkannt werden. Beispielweise könnte erkannt werden, wenn eine Person in einer Location gar nicht vorkommen dürfte und kann danach einen Fehler werfen.
+
+Data Mart:
+
+Daten werden denormalisiert gespeichert, was zwar Redundanz einbringt, aber die Abfragen sehr einfach und auch viel schneller macht.
+Updates sind aber etwas aufwändiger und schwieriger.
+
+####Business Intelligence / Analytics
+
+* Basieren auf die Data Marts
+
+####OLTP: Online Transaction Protocol
+Viele kleine Abfragen machen
+
+* Hotelreservierungen
+* ERP
+
+ZIEL: Viele Queries schnell absetzen
+
+####OLAP: Online analytical Processing
+Grosse Queries mit vielen Joins, keine Updates
+Redundanz der Daten um die Abfragen zu optimieren
+
+* Wissenschaftliche Datenbanken etc
+
+

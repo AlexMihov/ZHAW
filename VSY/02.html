@@ -1,0 +1,553 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Lektion 2</title>
+
+</head>
+<body>
+<h1>Lektion 2</h1>
+
+<h4>Inhalt</h4>
+
+<ol>
+<li>Architekturarten</li>
+<li>Zentrale verteilte Systemarchitekturen</li>
+<li>Dezentrale verteilte Systemarchitekturen</li>
+<li>Hybride verteilte Systemarchitekturen</li>
+<li>Architekturen und Middleware</li>
+<li>Autonome Systeme</li>
+</ol>
+
+
+<hr />
+
+<h2>Wichtigste Arten verteilter Systeme</h2>
+
+<ul>
+<li>Layered Architejturen</li>
+<li>Objektbasierte Architekturen</li>
+<li>Datenzentrierte Architekturen</li>
+<li>Ereignisbasirte Architekturen</li>
+</ul>
+
+
+<h4>Layered Architekturen</h4>
+
+<p>Eigenschaften:</p>
+
+<ul>
+<li>Stuerung fiesst von schicht zu Schicht (Layers)</li>
+<li>Anforderungen sind von oben nach unten</li>
+<li>Ergebnisse kommen von unten nach open</li>
+</ul>
+
+
+<p style="text-align:center;"> <img src="img/layered.png" alt="image" /></p>
+
+<p>Hinweis: Wann wird der Layer zum Tier wird?</p>
+
+<p>Ein Tier ist grundsätzlich Hardware. Mehrere Layer können auf dem gleichen Tier abgebilded werden. Beispielsweise sind webseiten 2-Tier: das erste Tier ist der Browser, das zweite Tier ist der Webserver und die DB, welche auf der gleichen Maschine laufen.</p>
+
+<h4>Objektbasierten Architekturen</h4>
+
+<p>Eigenschaften:</p>
+
+<ul>
+<li>Lose Koppelung</li>
+<li>Objekt = Komponente mit Schnittstelle</li>
+<li>Remote Procedure Call</li>
+<li>Evt. Separate Objekte als Konnektoren</li>
+</ul>
+
+
+<p style="text-align:center;"><img src="img/objected.png" alt="image" /></p>
+
+<p>Konnektor: Objekt, welches die Aufrufe weiterroutet, z.B. Aufrufe an Webserver (GET,POST)
+DTOs sind ebenfalls ein Beispiel</p>
+
+<p>Dies wird anscheinend "<strong>Proxy-Pattern</strong>" genannt</p>
+
+<h4>Datenzentriere Architekturen</h4>
+
+<p>Eigenschaften:</p>
+
+<ul>
+<li>Kommunikation über gemeinsame Datenbasis</li>
+<li>Aktives oder Passives Repository</li>
+<li>Kokkunikation über Dateien</li>
+<li>Auch Aufgaben als Daten gespeichert</li>
+</ul>
+
+
+<p style="text-align:center;"><img src="img/datacentered.png" alt="image" /></p>
+
+<p>Wenn man eine Datenbank hat werden beispielsweise Trigger gebraucht ist aber keine gute Idee.
+Eine bessere Idee ist es das Filesystem zu verwenden.
+1. Client schreibt ein file in einen Ordner
+2. Host merkt dies und behandelt das File
+3. Bei Erfolg oder Error wird ein Log geschrieben in ein entsprechendes Verzeichnis</p>
+
+<p>Problem ist wenn Systeme auf das gleiche File schreiben oder transferieren dies tatsächlich irgendwo hin. Das funktioniert dan nicht mehr. Es ist sehr schwierig diese Architektur zu verwenden.</p>
+
+<h4>Eventbasierte Architekturen</h4>
+
+<p>Eigenschaften:
+* Wiedergabe von Ereignissen
+* Publish / Subscribe Mechanismen
+* Entkoppelung (refferenzielle Entkoppelung)
+* Können mit Datenzentriereten Architekturen kombiniert werden</p>
+
+<p><img src="img/events.png" alt="image" /></p>
+
+<p>Gewinnt an Popularität; Alles was Sensoren messen sind eigentlich Events.
+Z.B. Sensor misst was und macht ein Publish mit den neuen Daten alle X Sekunden. Diejenigen Komponenten, welche es interessiert, reagieren dan darauf.</p>
+
+<p>Diese Architektur ist wahrscheinlich die Zukunft.</p>
+
+<hr />
+
+<h2>Zentrale vertteilte Architekturen</h2>
+
+<h4>Der Klassiker: Client-Server</h4>
+
+<p>Charakteristika:</p>
+
+<ul>
+<li>Clients requests Serices from servers</li>
+<li>Server: implementiert den Dienst</li>
+<li>Client: Bezieht den Dienst</li>
+<li>EVA: Eingabe - Verarbeitung - Ausgabe</li>
+</ul>
+
+
+<p>Asynchrone Verarbeitung ist immer sehr schwierig und bringt Overhead. Nur mit Vorsicht einzusetzen, da in 99% der Fälle dies ausreicht. Der grösste Vorteil sind die Latenzzeiten, ist aber meistens vernachlässigbar. Wenn man warten kann, wird mit synchronen Aufrufen die Komplexität ENORM vermindert</p>
+
+<p>Es gibt drei Arten von grundlegenden Aufgaben:</p>
+
+<ul>
+<li>Präsentation
+
+<ul>
+<li>z.B. Browser</li>
+<li>es wird immer mehr auf den Browser geschoben im Moment</li>
+</ul>
+</li>
+<li>Funktion</li>
+<li>Daten</li>
+</ul>
+
+
+<p>Fünf Rollenmodelle:</p>
+
+<ul>
+<li>Distributed Presentation
+
+<ul>
+<li>Server Stellt alle Clients zentral dar und versteckt deren Ursprung</li>
+<li>Überwachungskameras</li>
+<li>Remote-Desktop-Zugriffe</li>
+</ul>
+</li>
+<li>Remote Presentation
+
+<ul>
+<li>Bedeuted das Präsentation nur vom Client übernommen wird</li>
+</ul>
+</li>
+<li>Distributed Function
+
+<ul>
+<li>Die verteilte funktionalität setzt eine Arbeitsteilung auf funktionaler Ebene zw. Client und Server um</li>
+</ul>
+</li>
+<li>Remote Data
+
+<ul>
+<li>Daten sind alle auf einem zentralen Ort zu finden</li>
+</ul>
+</li>
+<li>Distributed Data
+
+<ul>
+<li>Client greifft auf Daten zu, welche auf verschiedenen Servern verteilt sind.</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Menschen ohne Erfahrung sagen, es sei einfach diese Modell zu definieren und einzuhalten. Dies ist nicht so; es ist immer schwierig dies umzusetzen. Z.B. "Wohin gehört Logik?"</p>
+
+<h4>Die Erweiterung: Multi-Tier Architektur</h4>
+
+<ul>
+<li>Trennung GUI in Presentation und Display (Browser)</li>
+<li>Trennung Processing in Orchestration und Logic</li>
+<li>Trennung Data in Back-End und DB</li>
+</ul>
+
+
+<p style="text-align:center;"><img src="img/multi-tier.png" alt="image" /></p>
+
+<ul>
+<li>Mainframe Architecture
+
+<ul>
+<li>Zentrale Hostcomputer, Interaktion über ein Terminal</li>
+</ul>
+</li>
+<li>Filesharing Architecture
+
+<ul>
+<li>Ursprüngliche PC-Architektur, Server sendet Daten und Programme an den PC der sie ausführt</li>
+</ul>
+</li>
+<li>Client/Server Architecture
+
+<ul>
+<li>Ersatz der File Sharing Systeme</li>
+</ul>
+</li>
+<li>Two Tier Architecture
+
+<ul>
+<li>2 Server - N Clients. Ausführung mehrerer Requests durch Prozess-Management (Konzipiert für 12-100 PCs)</li>
+</ul>
+</li>
+<li>Three Tier Architecture
+
+<ul>
+<li>Erweiterung durch Middle Tier, welches Funktionalitäten (Applikationslogik, Queueing, ...) - Skalierbar</li>
+</ul>
+</li>
+<li>Distributed/Collaborative Enterprise
+
+<ul>
+<li>SOA</li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Zentrale Hub &amp; Spoke Architektur</h4>
+
+<p>Das Charakteristische der Hub &amp; Spoke Architektur ist, dass die einzelnen Kokkunikationsteilnehmer immer über den zentralen Server kommunizieren und dass die Daten sowohl auf dem zentralen Server als auch auf den Spoke Servern gehalten werden.</p>
+
+<p style="text-align:center;"><img src="img/hub_spoke.png" alt="image" /></p>
+
+<hr />
+
+<h2>Dezentrale verteilte Systemarchitekturen</h2>
+
+<ul>
+<li>Vertikale Verteilung
+
+<ul>
+<li>Verteilung logische unterschiedlicher Komponenten auf unterschiedliche Rechner (Arbeitsteilung verschiedener Aufgaben)</li>
+<li>Entspricht der vertikalen Fragementierung in der DB (Aufteilung von Daten in Tabellen nach Spalten und entsprechende Verteilung auf div. Rechner)</li>
+</ul>
+</li>
+<li>Horizontale Verteilung:
+
+<ul>
+<li>Funktionen sind logisch und physisch über mehrere Rechner verteilt, die auf jeweils separaten Daten arbeiten (Arbeitsteilung gleicher Aufgaben)</li>
+</ul>
+</li>
+</ul>
+
+
+<h4>P2P und Serventes</h4>
+
+<p>Eigenschaften:</p>
+
+<ul>
+<li>Horizontale Verteilung</li>
+<li>Aus logischer Schicht snd alle Prozesse gleich</li>
+<li>Die meisten Interaktionen sind symetrisch</li>
+<li><strong>Servent</strong>: jeder Prozess ist gleichzeitig Server und Client</li>
+<li>Anordnung in Peer-to-Peer Netzwerken gleichwertiger Knoten</li>
+<li>Benötigt zur Kommunikation so genannte <strong>Overlay-Netzwerke</strong> die ein Verteilung und Finden von Daten und Funktionen im P2P Netzwerk erlauben.</li>
+</ul>
+
+
+<h4>Overlay Netzwerke</h4>
+
+<p>Ein Overlay Netzwerk ist eine Logische Schicht, die oberhaön eines physikalischen Netzwerks implementirt wird.
+<strong>Zentrale Eigenschaft</strong>: Jeder Knoten im Overlay Netzwerk ist ebenfalls im psysikallischen Netzwerk vorhanden, aber nicht jeder physische Knoten ist im Overlay Netzwerk implementiert</p>
+
+<p style="text-align:center;"><img src="img/overlay-network.png" alt="image" /></p>
+
+<p>Arten:</p>
+
+<ul>
+<li>Strukturierte
+
+<ul>
+<li>Konstruktion erfolgt mittels deterministischem Verfahren; Kommunikation erfolgt über Hash-Table</li>
+</ul>
+</li>
+<li>Unstrukturierte:
+
+<ul>
+<li>Zufällige Konstruktion (Zufälliger Graph). Die Kommunikation erfolgt über ein Überfluten» des Netzwerkes</li>
+</ul>
+</li>
+<li>Superpeer:
+
+<ul>
+<li>Ein Superpeer Knoten in einem Netzwerk enthält Informationen über andere Knoten, die Kommunikation erfolgt über diese Knoten</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h2>Hybride Systemarchitekturen</h2>
+
+<p>Sie kombinieren die beiden Modelle der zentralen ud dezentralen verteilten Systemarchitekturen</p>
+
+<p>Der Zugriff auf das Dezentral verteilte System erfolgt über ein zentral verteiltes System.</p>
+
+<p>Beispiel: Edge-Server-System (bzw. CDN)</p>
+
+<p style="text-align:center;"><img src="img/edge-servers.png" alt="image" /></p>
+
+<hr />
+
+<h2>Architekturen und Middleware</h2>
+
+<h6>Was ist Middleware?</h6>
+
+<p>Unter Middleware wird die Infrastrukture für die Kommunikation zwischen den Komponnten eines verteilten Systems verstanden (meistens zwischen Darstellung dund Daten)</p>
+
+<p>Die 5 Typen von Middleware sind:</p>
+
+<ul>
+<li><strong>Dialogorientiert</strong>: Synchrone Interaktion aller Komponenten</li>
+<li><strong>Request/Reply</strong>: Entspricht Methodenaufruf</li>
+<li><strong>Message Passing</strong>: Informationsaustausch durch Meldungen</li>
+<li><strong>Message Queuing</strong>: Meldungen in Queues (Warteschlagen)</li>
+<li><strong>Publish/Subscribe</strong>: Rollenmodell für die Kommunikation</li>
+</ul>
+
+
+<p>Steuerung des Verhaltens</p>
+
+<ul>
+<li>Interzeptoren
+
+<ul>
+<li>Anwendungskomponenten, die in die Kommunikation zwischen zwei Komponenten eingebunden werden</li>
+</ul>
+</li>
+<li>Separation of Concerns
+
+<ul>
+<li>Trennung von Business Logic und den so genannten "Crossctting Concerns"</li>
+</ul>
+</li>
+<li>Computational Reflection
+
+<ul>
+<li>Software kann ihr eigenes Verhalten zu reflektieren und gegebenfalls ändern</li>
+</ul>
+</li>
+<li>Component-Based Design
+
+<ul>
+<li>Dabei wird dynamische und statische komposition unterschieden</li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Computational Reflection</h4>
+
+<p>Umfasst 2 Tätigkeiten</p>
+
+<ul>
+<li><strong>Introspection</strong>: Die Beobachtungen des eigenen Verhaltens durch ein System</li>
+<li><strong>Intercession</strong>: Die Aktionen, die auf eine bestimmte Beobachtung hin ausgeläst werden das Verhalten des Systems ändern können</li>
+</ul>
+
+
+<p>Zwei Arten von Computational Reflection</p>
+
+<ul>
+<li><strong>Structural Reflection</strong>: Reflektion auf der ebene von Klassenbäumen und Datentypen. So kann beispielsweise ein Metalevel Objekt ein Basisobjekt auf die verfügbaren Methoden hin untersuchen und die entsprechende geeignete Methode aufrufen.</li>
+<li><strong>Behaviroural Reflection</strong>: Reflektion auf der Ebene der Semantik einer Komponente. So kann ein verteiltes System mit Behavioral Reflection dasjenige Netzwerk-Protokoll wählen, welches für eine bestimmte Situation (WAN, LAN, Wireless) geeignet ist</li>
+</ul>
+
+
+<hr />
+
+<h2>Autonome Systeme</h2>
+
+<p>Autonomous Systems sind Systeme, die selbständig und kontextbezogen handeln können</p>
+
+<h4>Eigenschaften eines Autonomen Agenten</h4>
+
+<ul>
+<li><strong>Autonomie</strong></li>
+<li><strong>Interaktiv</strong></li>
+<li><strong>Reaktiv</strong></li>
+<li><strong>Proaktivität</strong></li>
+</ul>
+
+
+<h4>Rückkopplung</h4>
+
+<p>Man bekommt Feedback vom System, dieses wird ausgewertet und danach wird das System adaptiert um die Umstände bewältigen zu können.</p>
+</body>
+</html>

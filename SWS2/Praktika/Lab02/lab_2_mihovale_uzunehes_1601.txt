@@ -1,0 +1,4 @@
+1) ./apache_but start
+2) ./apache_but stop
+3) 	tail -f /opt/applic/httpd/logs/access_log (or any other log-file you want to monitor)
+

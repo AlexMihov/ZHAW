@@ -1,0 +1,447 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Lecture 3 - Penetration testing</title>
+
+</head>
+<body>
+<h1>Lecture 3 - Penetration testing</h1>
+
+<h2>Goals</h2>
+
+<ul>
+<li>You know waht penetration tests are and have learned the basiscs to them</li>
+<li>You know the methods and tools to do penetration tests and can explain important parameters (scope, rules of engagement, test methods etc.)</li>
+<li>you are aware of the standards</li>
+</ul>
+
+
+<h2>What is a penetration test?</h2>
+
+<p>Several definition exist:</p>
+
+<p>Penetratoin testing is security testing in which assessors mimic real-world attacks to identify methods for circumeventing the security features of an application, system or network.</p>
+
+<p>Penetration test is the simulation of an attack on a system, network, piece of equipment or other facily with the objective of <em>proving</em> how vulnerable that system or "target" would be to a real attack.</p>
+
+<p>Proving has to be considered together with the scope... it's very hard if not impossible to quantify. Also your assesment s only true for a short time, i.e. the time you made the analysis.</p>
+
+<h5>A more business oriented definition</h5>
+
+<p>A penetration test serves to analyse the entire or designated parts of the IT-environment of a company with the goal to find and explit vulnerabilities and to identify the business risk associated with them.</p>
+
+<h2>Motivation</h2>
+
+<p>Reasons vary a lot</p>
+
+<ul>
+<li>Find holes ind your denfenses before attackers do</li>
+<li>Test defenders to succesfully detect and respond to attacks</li>
+<li>raise oveall security awareness</li>
+<li>very secure system configurations and/or test new technology</li>
+<li>Discover gaps in compliance posture and statisfy legal and governmental requirements
+
+<ul>
+<li>usually a very basic one, because the people just need to make a chek in a report that tehy have done a pentest</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Focus and Acope</h2>
+
+<h6>Common types:</h6>
+
+<ul>
+<li>Hacking and controlling IT assets</li>
+<li>getting access to a certain piece of information</li>
+<li>penetration physical security (extract key from smartcard)</li>
+<li>social engineering (convincing someone to open an attachment)</li>
+</ul>
+
+
+<h6>It has a clear but limited scopes</h6>
+
+<ul>
+<li>web application penetration test conducted only from the point of view of the internet browser</li>
+<li>try to access a system managing the bank accounts of non-Swiss citizens from an outsider's point of view</li>
+</ul>
+
+
+<h6>Success factors</h6>
+
+<p>Experience, skills, wherewithal, lateral and out of the box thinking.</p>
+
+<p><strong>Vulnerability scaning or compliance audits are NOT pentests!</strong></p>
+
+<h3>Classic pen-testing cycle</h3>
+
+<ul>
+<li>Reconnaissance</li>
+<li>Threat modeling and vulnerability analysis</li>
+<li>Exploitation/Pnetration</li>
+<li>Reporting</li>
+</ul>
+
+
+<h2>How to pentest?</h2>
+
+<ul>
+<li>Open source security Testing Methodology Manual (OSSTMM)
+
+<ul>
+<li>read this and get certified if pentesting is your companies main business</li>
+</ul>
+</li>
+<li>OWASP Testing Guide (V4.0)
+
+<ul>
+<li>for testing web applications</li>
+<li>Has hands-on advice</li>
+</ul>
+</li>
+<li>NIST SP800-115 Technical Guide to Information Security Testing and Asssesment</li>
+<li>Penetration testing execution standard (PTES)
+
+<ul>
+<li>Explains basic principles</li>
+<li>includes both detailed instructions and framework diagrams</li>
+<li><strong>PTES is the basis for this course</strong></li>
+</ul>
+</li>
+<li>There are a lot of other ressources too on the internet</li>
+</ul>
+
+
+<p style="text-align:center;"><img src="img/pentesting.png" alt="image" /></p>
+
+<h2>Preengagement Interactions</h2>
+
+<ul>
+<li>Scoping</li>
+<li>Rules of engagement</li>
+</ul>
+
+
+<h3>Scoping</h3>
+
+<ul>
+<li>Defines what is to be tested
+
+<ul>
+<li>an in.depth test of a single application attacked over the internet ithout the help of emloyees? (deep but small coverate)</li>
+<li>test widerange IP adresses to find a way into the company network.</li>
+</ul>
+</li>
+<li>outlines how the testers should spend their time</li>
+</ul>
+
+
+<p>The customers usually don't know exactly what they want and the challange is to find this out.</p>
+
+<h6>What</h6>
+
+<ul>
+<li>information about vulnerabilities and the risk</li>
+<li>reccomendations on how to fix the security</li>
+<li>a checkmark in a checkbox</li>
+<li>discredit someone in a different department</li>
+</ul>
+
+
+<h6>Why</h6>
+
+<ul>
+<li>suspects that tehy have a serious security problem</li>
+<li>to meet compliance</li>
+<li>because management wants products/services pentested before going live (usually veeery short timescope)
+
+<ul>
+<li>if you find a high risk the management is usually in a big problem if you find it</li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Common types</h4>
+
+<ul>
+<li>Network (e.g. try to get into the intranet)</li>
+<li>Web application (e.g. get access to customer data)</li>
+<li>wireless network</li>
+<li>physical (e.g. enter a secured area and access a specific asset)</li>
+<li>social engineering</li>
+</ul>
+
+
+<h4>What the means used to interact the assets should be</h4>
+
+<ul>
+<li>human</li>
+<li>physical</li>
+<li>wireless</li>
+<li>telecomunications</li>
+<li>Data networks</li>
+</ul>
+
+
+<h4>What is Tested and How?</h4>
+
+<ul>
+<li>what assets are included/excluded from the test
+
+<ul>
+<li>the entire web application except the billing</li>
+<li>list of IPs to be tested</li>
+</ul>
+</li>
+<li>are assets of third parties are affected? Which? (need to be <strong>VERY</strong> careful here)
+
+<ul>
+<li>cloud services</li>
+<li>internet service provider</li>
+</ul>
+</li>
+</ul>
+
+
+<p>=> check terms of sevice</p>
+
+<p>=> check mpact on test results (e.g. filtering malicious traffic, DoS etc.)</p>
+
+<h4>Common test methods</h4>
+
+<ul>
+<li>blind: war gaming, role play</li>
+<li>Double Blind: blind box, classical penetration test</li>
+<li>Gray Box: vulnerability test</li>
+<li>Double Grey Box: whitebox testing</li>
+<li>Tandem: crysta box testing</li>
+<li>Reversal: Red Team Experience</li>
+</ul>
+
+
+<p> -><img src="img/test_methods.png" alt="image" />&lt;-</p>
+
+<h4>How do you define the scope?</h4>
+
+<ul>
+<li>use a questionaire to guide the process of defining the scope</li>
+<li>PTES provides lists with questions
+
+<ul>
+<li>the lists are far fom complete but a good starting point</li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Risks of scope defining</h4>
+
+<p><strong>Scope creep</strong>:
+Extentions/alteration of the scope requiring more time and effort</p>
+
+<p>-> don't give in to the customer</p>
+
+<h4>Communication</h4>
+
+<ul>
+<li>People onn the list of contacts
+
+<ul>
+<li>all penetraion tsters</li>
+<li>the manager</li>
+<li>Two technical contacts at each target organization</li>
+<li>Two technical contacts at the customer</li>
+</ul>
+</li>
+<li>Incident reporting Process</li>
+<li>Status report frequency</li>
+<li>PGP and other alternatives</li>
+</ul>
+
+
+<h2>Rules of engagement</h2>
+
+<ul>
+<li>identifies work items and resources (people, equipment)</li>
+<li>Synchronization times</li>
+<li>Timeline</li>
+<li>status meetings</li>
+<li>Time to test</li>
+<li>use of evasion/stealth techniques</li>
+<li>evidence handling</li>
+</ul>
+
+
+<h4>Sensitive information</h4>
+
+<p>Get the permission to test!!!!!!</p>
+
+<ul>
+<li>Do not store/access personally identifiable information</li>
+<li>do not store/access sensitive personal information</li>
+</ul>
+
+
+<p>But how do you prove it?</p>
+
+<ul>
+<li>Screenshots of the database schema (not the data)</li>
+<li>screenshot of the file permissions along with the current user</li>
+<li>capture a piece of information (flag) placed there for this purpose</li>
+</ul>
+
+</body>
+</html>

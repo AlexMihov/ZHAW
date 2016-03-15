@@ -1,0 +1,582 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Lecture 2 - Threat Landscape</title>
+
+</head>
+<body>
+<h1>Lecture 2 - Threat Landscape</h1>
+
+<h2>Goals</h2>
+
+<ul>
+<li>Threat landscape:
+
+<ul>
+<li>Definition</li>
+<li>Motivation</li>
+<li>Threat Agents</li>
+<li>sources of information</li>
+<li>Some trends</li>
+<li>Advanced persisten Threats (APT)</li>
+</ul>
+</li>
+<li>You know what a Threat landscape is</li>
+<li>Know the taxomomy</li>
+<li>Able to explain what the cyber kill chain is and what use it has</li>
+</ul>
+
+
+<hr />
+
+<h2>Threat Landscape</h2>
+
+<p>It's about threats and it is a landscape. You know how the situation looks like. You have to know hte landscape to be able to fight in it.</p>
+
+<p>Threat Information:</p>
+
+<ul>
+<li><strong>Threat types</strong>: DDoS, phishing etc</li>
+<li><strong>Targetet assets</strong>: what is targetet? Can range from a website to a smartphone</li>
+<li><strong>Threat agents</strong>: Who's the attacker? Some pose a threat intentionally, some don't know what they are doing and pose a threat that way.</li>
+<li><strong>Attack vector</strong>: description usually based on the kill-chain. How does an attack find it's way into a system.</li>
+</ul>
+
+
+<h4>Motivation</h4>
+
+<p>Knowing and tracking the landscape means:</p>
+
+<ul>
+<li>You know the weapons and tactics</li>
+<li>You know different types of threats and their capabilities</li>
+<li>You know what threats are considered most relevant</li>
+<li>You learn about new attack trends, tactics and techniques</li>
+</ul>
+
+
+<p>Note: the knowledge is always incomplete; you only know what is known and published. Usually new discoveries get published only after years, for example when agencies are targeted.</p>
+
+<p>Knowing the threat landscape is important because:</p>
+
+<ul>
+<li>it helps you to prepare for current and emerging threats</li>
+<li>it helps to understand and estimate the risk faced by an organization</li>
+<li>it can help to motivate investements in security controls</li>
+</ul>
+
+
+<p style="text-align:center;"><img src="img/threat_landscape.png" alt="image" /></p>
+
+<hr />
+
+<h2>Threat agents</h2>
+
+<p style="text-align:center;"><img src="img/threat_agents.png" alt="image" /></p>
+
+<p>The further down the less skill they have, but the more they are. But it costs more to defend against more skilled people.</p>
+
+<p style="text-align:center;"><img src="img/enemies_we_face.png" alt="image" /></p>
+
+<h4>How to characterise a Threat agent</h4>
+
+<ul>
+<li>Motivation</li>
+<li>Resources</li>
+<li>Skill level</li>
+<li>Role
+
+<ul>
+<li>Infrastructure delivery
+
+<ul>
+<li>Developer of malware</li>
+<li>Provider</li>
+<li>Operator</li>
+</ul>
+</li>
+<li>Infrastructure of a user
+
+<ul>
+<li>user / deployer</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Threat agent: Cyber criminals</h3>
+
+<h5>Motivation</h5>
+
+<p>Usually Money and Intelligence (with the goal of money aswell)</p>
+
+<h5>Resources</h5>
+
+<p>Medium to large time and money; Could be a single person or an organized group with a hiararchy which have a lot of different skills (not just hacking, but also social engineering etc.). The organizations could also be on site, which is even more dangerous</p>
+
+<h5>Skill level</h5>
+
+<p>From medium to very high</p>
+
+<h5>Roles</h5>
+
+<p>Developer, Provider, Operator, User/Deployer</p>
+
+<h5>Types of activities</h5>
+
+<ul>
+<li>Fraud</li>
+<li>Sell breached data (emails, credit cards)</li>
+<li>*-as-a-Service
+
+<ul>
+<li>Access-as-a-service: Pay to access the target of your choice; VERY prestigious and well payd</li>
+<li>Exploitation-as-a-service:
+
+<ul>
+<li>Develop and sell exploits</li>
+<li>run an exploitation service (pay per hit, pay per install)</li>
+<li>but brings quite a lot of management for your hack</li>
+</ul>
+</li>
+<li>Malware-as-a-service: usually a complement to the Exploitation</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Threat Agent: Cyber spies (nation states / corporations)</h3>
+
+<h5>Motivation</h5>
+
+<p>Intelligence, competitive advantage</p>
+
+<h5>Resources</h5>
+
+<p>Large to very large time and money budget</p>
+
+<h5>Skill level</h5>
+
+<p>From medium to very high</p>
+
+<h5>Roles</h5>
+
+<p>Developer, Provider, Operator, User/Deployer</p>
+
+<h5>Types of activities</h5>
+
+<ul>
+<li>Espionage to gain a political, military pr economical advantage</li>
+<li>Cyber offense to deter adversaries and to gain a military advantage</li>
+</ul>
+
+
+<p>ENISA definition is probably too narrow and does not seem to include offensive activities of nation states</p>
+
+<p>Usually very advanced - most activities have only been uncovered by whistle blowers or by data leaks. But when and where do they use their capabilities? They probably won't use it for mass surveilance, because the chance of getting detected is increasing and they don't want to give that advantage away undless you can use it in a way where you can't find it.</p>
+
+<h4>The arsenal of the NSA</h4>
+
+<ul>
+<li>FIREWALK: A device that looks like a RJ45 socket that allows data to be injected or monitored and transmitted by radio technology using the <strong>HOWLERMONKEY</strong> RF trancieve</li>
+<li>BULLDOZER: hidden wireless bridge that allows remote access</li>
+<li>DROPOUTJEEP: implat in the iPhone that provides SIGINT functionality</li>
+<li>IRATEMNOK: infiltrates firmware of Harddisks</li>
+<li>IRONCHEF: infects networks by installing itself on computer BIOS</li>
+</ul>
+
+
+<h3>Threat Agent Online social hacker</h3>
+
+<p>Considered to be part of the cyber-criminal threat</p>
+
+<h5>Types of activities</h5>
+
+<ul>
+<li>Exploiting the human to deploy cyber threats</li>
+<li>Profiling of candidate victims to enable targeted attacks</li>
+</ul>
+
+
+<p>They analyse/understand behaviour and psychology of social targets</p>
+
+<ul>
+<li>they know how to make a victim believe that what it is asked to do is totall ok and that it has to be done</li>
+<li>they also know what sources of information people trust and how to exploit this trust</li>
+</ul>
+
+
+<p>You don't need to have a profound technical knowledge to be a social hacker; usually you can exploit the psychology pretty easilly</p>
+
+<h3>Threat agent Employee</h3>
+
+<h5>Motivation</h5>
+
+<p>Extortion, revenge, sabotage or profit</p>
+
+<h5>Resources</h5>
+
+<p>Low</p>
+
+<h5>Skill level</h5>
+
+<p>low</p>
+
+<h5>Roles</h5>
+
+<p>user / deployer</p>
+
+<p>It is usually a good idea to have happy employees in your company to mitigate the threat</p>
+
+<h3>Threat agent Script kiddie</h3>
+
+<h5>Motivation</h5>
+
+<p>Thrill, fun, fame, profit</p>
+
+<h5>Resources</h5>
+
+<p>Low</p>
+
+<h5>Skill level</h5>
+
+<p>unskilled/low</p>
+
+<h5>Roles</h5>
+
+<p>user / deployer</p>
+
+<h5>Types of activities</h5>
+
+<p>Use free or purchased hacking tools and services</p>
+
+<p>Consumerization of cybercrime might contribute toward getting them involved in more security incidents</p>
+
+<p>Not too difficult to defend against :)</p>
+
+<h3>Threat agent Other</h3>
+
+<ul>
+<li>Hacktivists get information from organizations or people in power in order to embarass or to raise public awareness</li>
+<li>Cyber Fighers are nationally motivated and may move tin the interstellar space between terrorists, activists and espionage
+
+<ul>
+<li>motivated by nationalistic purposes, which <strong>THEY</strong> think are right, nobody makes them do those things</li>
+</ul>
+</li>
+<li>Cyber Terrorists
+
+<ul>
+<li>Narrow: deplyments of disruption attacks against information systems for the primary purpose of creating alarm and panic by <strong>known terrorist organizations</strong> (=> no know incidents so far)</li>
+<li>Broad: intentional use of computers, networks and public internet to cause destruction and harm for poilitical or ideological objectives</li>
+<li>no commonly accepted definition exists</li>
+<li>Experts say it will become more of a problem in the near future</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h2>Cyber Kill Chain</h2>
+
+<p>It gives us an idea how an attacker in the threat landscape will attack us.</p>
+
+<p>It shows you where you can counter the attacker or at least make it more difficult. If you can kill any of the components, the attack won't happen. Every single component has to happen for the attack to be successfull.</p>
+
+<h4>The way of the attacker</h4>
+
+<ol>
+<li>Reconnaisance:
+
+<ul>
+<li>Gather information on the target before the actual attack (internet, onsite etc.)</li>
+</ul>
+</li>
+<li>Weaponize information:
+
+<ul>
+<li>Uses an exploit that creates a malicious payload to send to the victim, which is tailored for the specific target (can last hours to months)</li>
+</ul>
+</li>
+<li>Delivery:
+
+<ul>
+<li>the attacker delivers the malicous payload to the victim</li>
+<li>using an USB-Stick, Email, website or other means</li>
+</ul>
+</li>
+<li>Exploitation:
+
+<ul>
+<li>Exploitation of a vulnerability to automatically execute the delivered payload</li>
+<li>only relevant when the attacker uses an exploit to deliver the malicious payload</li>
+</ul>
+</li>
+<li>Installation:
+
+<ul>
+<li>installation of the malware on the target computer</li>
+<li>only relevant when the attacker uses malware as part of the attack</li>
+</ul>
+</li>
+<li>Command and Controll
+
+<ul>
+<li>Creation of a command and control channel to continue to operate internal assets remotely</li>
+<li>this step is relatively generic and relevant trhought the attack, not only when the malware is is installed</li>
+</ul>
+</li>
+<li>Action on objectives
+
+<ul>
+<li>Steps to achieve the actual goal inside of the victims network</li>
+<li>this is the elaborate active attack process that takes months and thousands of small steps in order to achieve the objectives</li>
+</ul>
+</li>
+</ol>
+
+
+<hr />
+
+<h2>Sources of information about threats</h2>
+
+<h5>Longterm</h5>
+
+<p>Threats are publshed once or a few times a year.</p>
+
+<ul>
+<li>to make strategical or longterm decisions</li>
+</ul>
+
+
+<p>You can access threat databases</p>
+
+<ul>
+<li>to assist with incident investigation and threat research</li>
+</ul>
+
+
+<h5>Shortterm</h5>
+
+<ul>
+<li>Focus on "real-time" information</li>
+<li>Articles on news portals</li>
+<li>Security mailing lists</li>
+<li>Threat intelligence service providers</li>
+<li>Threat intelligence platforms
+
+<ul>
+<li>aggregation and correlation of threat data from threat intelligence service profiders</li>
+<li>Actionable / machine readable data that can be automatically fed into a security system</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Threat taxonimy</h3>
+
+<ul>
+<li>It's a classification of threat types at various levels</li>
+<li>useful for a common understanding</li>
+<li>it's dynamic</li>
+</ul>
+
+
+<p>Also lists the top 15 threats and their trends</p>
+
+<h2>Threat trends</h2>
+
+<p><strong>Warning</strong>: this might not be the newest ones, since you only know after a few years what exactly is happening.</p>
+
+<ul>
+<li>performing persistent attacks based on hardware, far "below" the radar of available defence tools and methods (hides in harddisk firmware)</li>
+<li>Enhancements in the provision of "Cyber-crime-as-a-service": Tool developmnt for nont experts and affiliate programs
+
+<ul>
+<li>you make malware available to users and give back some money to the "partner"</li>
+</ul>
+</li>
+<li>Broadening of attack surface (Rooters, IoT etc)</li>
+<li>Improved malware weaponization and autimated tools to detect and exploit vulnerabilities</li>
+<li>Campaigning with highly profitable malicious infrastructures and malware (you get an easy to use interface for non-technical people)</li>
+<li><strong>ASSUME YOU HAVE BEEN HACKED ALREADY</strong></li>
+</ul>
+
+
+<h2>Advanced Persistant Threats (APT)</h2>
+
+<p>Use advanced tehnologies and techniques</p>
+
+<ul>
+<li>can and will penetrate existing defenses and is VERY HARD to detect</li>
+<li>Operators develop more advanced tools as required</li>
+<li>Multiple targeting methods, tools, and techniques to reach and compromise a target and maintain access to it</li>
+</ul>
+
+
+<p>Persistent:</p>
+
+<ul>
+<li>it keeps trying until is succeeds</li>
+<li>Hides from detection</li>
+<li>maintain long-term access</li>
+</ul>
+
+
+<p>Usually VERY well funded and engineered</p>
+</body>
+</html>

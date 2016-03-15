@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Lektion 3 - Middleware</title>
+
+</head>
+<body>
+<h1>Lektion 3 - Middleware</h1>
+
+<h2>Problems</h2>
+
+<ul>
+<li>Different Languages</li>
+<li>Different APIs</li>
+<li>Diffrennt OSs</li>
+<li>Different Datatypes</li>
+<li>Different Network protocols</li>
+</ul>
+
+
+<h2>Solution: Middleware</h2>
+
+<ul>
+<li>Layer between OS and distributed Applications</li>
+<li>Hides complexity and heterogenity of distributed system
+
+<ul>
+<li>Bridges gap between low.leel OS communications and programming languages</li>
+<li>provides common programming abstraction</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Supports:</p>
+
+<ul>
+<li>Mapping and conversion of common types</li>
+<li>(De)serialization of values</li>
+<li>protocol handling, failure handling, Quality of service</li>
+<li>transactions</li>
+<li>access control, authentication</li>
+<li>interface description language</li>
+</ul>
+
+
+<h3>Mapping programming language types</h3>
+
+<p style="text-align:center;"><img src="img/types.png" alt="image" /></p>
+
+<h3>Serialization and Deserialization</h3>
+
+<ul>
+<li>The concrete values and data structures have to send over the "wire"</li>
+<li>They need to be streamed in and out</li>
+</ul>
+
+
+<h3>Naming, Location, Service discovery</h3>
+
+<p>Before a server service can be called its physical location (machine) has to be found</p>
+
+<h3>Protocol handling, failure handling, QoS</h3>
+
+<ul>
+<li>Remote call is much more error prone</li>
+<li>Some error can be handled by infrastructure</li>
+</ul>
+
+
+<p>Can be resent again, but that might be a problem for example for bank transactions
+=> needs to be idempotent</p>
+
+<h3>Transactions</h3>
+
+<ul>
+<li>often DB access and transactions are involved</li>
+<li>for consistency this requires that Two-Phase-Commit (2PC) is supported</li>
+<li>Transaction Context has to be piggybacked with the data</li>
+</ul>
+
+
+<h3>Access Control, Authentication</h3>
+
+<ul>
+<li>Credentials have to be checked</li>
+<li>User Id has to be piggybacked with each call</li>
+</ul>
+
+
+<h3>Lifecycle Service</h3>
+
+<ul>
+<li>Server Services are started on demand</li>
+<li>some instance has the "wake them up"</li>
+</ul>
+
+
+<h3>Middleware Dimensions</h3>
+
+<p style="text-align:center;"> <img src="img/middleware_dimensions.png" alt="image" /></p>
+
+<h3>Type of middleware to chose</h3>
+
+<ul>
+<li>the one that meets requirements!</li>
+</ul>
+
+
+<p>Tradeoffs:</p>
+
+<ul>
+<li>Simple e.g. language specific -> bound to specific programming language</li>
+<li>Simple e.g. request/response -> no asynchronous calls</li>
+<li>Simple e.g. vendoc specific -> proprietary, vendor locking</li>
+</ul>
+
+
+<p>Choice of Middleware</p>
+
+<ul>
+<li>has huge impacts on architecture of all applications</li>
+<li>cannot be changed easily -> lives for YEARS</li>
+<li>has to last several yoears or decates</li>
+<li>will be outdated sometime, vendor supports expires -> plan migration to other Middleware</li>
+</ul>
+
+
+<h2>Remote procedure calls</h2>
+
+<ul>
+<li>Language-level pattern of function call</li>
+<li>Quality of service are almost not supported</li>
+<li>the call was blockend, which means that the client waits for the server to answer
+
+<ul>
+<li>you need to handle the threading yourself</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Object-Oriented Middleware</h2>
+
+<ul>
+<li>Objects can be local or remote</li>
+<li>Objects references can be local or remote</li>
+<li>Remote objects have visible remote interfaces</li>
+</ul>
+
+
+<p style="text-align:center;"><img src="img/OOM.png" alt="image" /></p>
+
+<h2>Message-Oriented Middleware</h2>
+
+<ul>
+<li>Cimmunication using (asynchronous) message passing</li>
+<li>Messages stored in message queues</li>
+<li>Various assumptions about message content</li>
+</ul>
+
+
+<p style="text-align:center;"><img src="img/MOM.png" alt="image" /></p>
+
+<ul>
+<li>Must be and is reliable</li>
+<li>Error handling is always hard with asynchronous calls</li>
+</ul>
+
+
+<h2>Event-Based Middleware aka. Pub/Sub</h2>
+
+<ul>
+<li>Publishers pubish events</li>
+<li>Subscribers express interestin in events</li>
+<li>Event Service notifies interested subscribers of published events</li>
+<li>Events can have arbitrary content (typed) or name/value pairs</li>
+</ul>
+
+
+<h2>Interface Description Language (IDL)</h2>
+
+<ul>
+<li>Wie beim RPC steht im Zentrum die Definition des Server-Interfaces.</li>
+<li>Die Sprache IDL ist CORBA-spezifisch und „unabhängig“.</li>
+<li>IDL ist selbst objektorientiert (Vererbung).</li>
+<li>Aus einem Stück IDL werden die konkreten Elemente für die jeweilige Plattform generiert.</li>
+<li>Ein ORB kann sowohl IDL-Definitionen als auch deren dazugehörige Implementationen „verwalten“</li>
+</ul>
+
+
+<pre><code>module SomeDBApp {
+ module services {
+    struct Person {
+        string name;
+        int ahvnr;
+        long balance
+    }
+exception AlreadyOnLine{};
+exception Duplicate{};
+interface Server {
+    boolean init(in string sName) raises(AlreadyOnLine);
+}
+interface someLookup {
+    void doit(in string name, out Person p) raises(Duplicate);
+ }
+ }
+ ...
+}
+</code></pre>
+</body>
+</html>

