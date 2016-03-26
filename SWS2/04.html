@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Lektion 4 - Intelligence gathering</title>
+
+</head>
+<body>
+<h1>Lektion 4 - Intelligence gathering</h1>
+
+<ul>
+<li>Passive: using data from third parties that is already there
+
+<ul>
+<li>access to information cannot be detected by the victim</li>
+<li>can be quite limited and information is likely unudated</li>
+</ul>
+</li>
+<li>Semi-Passive: using data gathered using legitimate behaviour
+
+<ul>
+<li>you behave like a normal user</li>
+<li>qury only sources that are there to be queried and stick to the protocol</li>
+<li>use anonymization networks or similar to hide the origin of the quries
+
+<ul>
+<li>that also tests their capabilities of tracking back an attack</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Active: Should be detected by the target
+
+<ul>
+<li>no limitations</li>
+<li>most common form f information gathering</li>
+<li>scanning of everything</li>
+<li>is very fast in comparison to passive and semi-passive</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Summary</h2>
+
+<ul>
+<li>there is not a checklist to follow</li>
+<li>needs to be carried out precisely and in an organized manner to be effective</li>
+<li>up to 90% of the time is spent on profiling the target</li>
+<li>Result is a unique target profile</li>
+<li>Most information can be sought and collected within legal boundries</li>
+</ul>
+
+
+<hr />
+
+<h2>Methods and tools</h2>
+
+<ul>
+<li>whois system</li>
+<li>browsing the target's website</li>
+<li>Google Dorking (Search Engine hacking)</li>
+<li>ip ranges</li>
+<li>scanning</li>
+<li>foorprinting defenses</li>
+</ul>
+
+
+<h3>Whois - information on a domain</h3>
+
+<p>When the Domain of the target is known, the whois system can be used to get additional details</p>
+
+<ul>
+<li>the whois system is a distributed databasem the servers are operated by the ISPs for their respective ressources</li>
+<li>there are various possibilities to get the information</li>
+<li>you can find out for example who is responsible for the system -> that is an important person</li>
+<li>very easy to use and it's invisible</li>
+</ul>
+
+
+<h3>Browsing the target's website</h3>
+
+<ul>
+<li>the company website itself can provide lots of interesting information -> search function</li>
+<li>Phone numbers, pictures, adresses</li>
+<li>if you are searching for information on old data, use caches of search engines</li>
+</ul>
+
+
+<h3>Search engine hacking</h3>
+
+<ul>
+<li>use a search engine to reveal information that companies/individuals likely intended not to be discoverable trough a web search
+
+<ul>
+<li>account usernames and password, customer and partner lists and details etc,</li>
+</ul>
+</li>
+<li>using clever search queries to get to sensitive information</li>
+</ul>
+
+
+<h5>Example</h5>
+
+<p><code>
+    inurl:wp-content inurl:zhaw.ch
+   </code></p>
+
+<p>checks if the website runs any wordpress installations</p>
+
+<ul>
+<li><strong>Google Hacking Database</strong>: a source for new and old search strings to search for this fromdifferent categories</li>
+</ul>
+
+
+<h3>Scanning</h3>
+
+<p>Based on prvious results the target company's network and hosts are examned in more detail during scanning</p>
+
+<ul>
+<li>determine the network structure, especialy when analysing larger environments</li>
+<li>Find hosts that are reachable</li>
+<li>analyse the hosts in detail (OS etc)</li>
+<li>perform vulnerability scans</li>
+</ul>
+
+
+<h2>Summary</h2>
+
+<ul>
+<li>Scanning servers to analyse the network structure and individual hosts</li>
+<li>after scanning we know parts of the networks and hosts that are reachable</li>
+<li></li>
+</ul>
+
+</body>
+</html>
